@@ -1,0 +1,41 @@
+#Time : Tue Nov 20 11:11:32 2012#
+# no_response_sound : <psychopy.sound.SoundPyglet instance at 0xdfcfe90> 
+# scanner : False 
+# iti : 0.24 
+# orientation : 0 
+# demo : False 
+# block_duration : 12 
+# feedback_dur : 0.3 
+# start_per_staircase : 0.25 
+# interblock_interval : 0.54 
+# do_peripheral : True 
+# save_fig : True 
+# response_dur : 1 
+# fringe_proportion : 0.2 
+# do_fixation : False 
+# monitor : testMonitor 
+# n_trials : 5 
+# fix_base_color : 0 
+# full_screen : False 
+# target_size : 4 
+# n_blocks : 12 
+# incorrect_sound : <psychopy.sound.SoundPyglet instance at 0x5c36b70> 
+# subject : test 
+# eye_motion : False 
+# target_dur : 0.1 
+# fixation_size : 0.2 
+# target_x : 5 
+# target_y : -2 
+# fix_staircase_step : 0.05 
+# correct_sound : <psychopy.sound.SoundPyglet instance at 0xdfc65f8> 
+# eye_motion_sound : <psychopy.sound.SoundPyglet instance at 0xdfae9e0> 
+# target_loc : Left 
+# start_fix_staircase : 0.25 
+# screen_number : 0 
+# isi : 0.3 
+# fixation_color : -1 
+# per_staircase_step : 0.05 
+# res : 128 
+# trial_duration : 2.1 
+# sf_base : 1 
+task,trial,contrast,correct 
