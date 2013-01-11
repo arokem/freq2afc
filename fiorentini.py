@@ -68,7 +68,7 @@ if p.target_loc == 'Right':
     #Triangle fixation: 
     arrow_fixation = visual.ShapeStim(win, fillColor=fixation_color,
                             lineColor=fixation_color,
-                            vertices=((fs/2, 0),(-fs/2, fs/2),(-fs/2, -fs/2)))
+                            vertices=((fs/2, 0),(-fs/2, fs/2),(-fs/2,-fs/2)))
     #With a white penumbra:
     arrow_fixation_surround = visual.ShapeStim(win, fillColor=1*rgb,
                                                lineColor=1*rgb,
@@ -375,7 +375,6 @@ for block in xrange(p.n_blocks):
                                                 interpolate=False)
 
                     grating1.draw()
-                    grating2.draw()
 
                 elif t<p.target_dur+2*p.isi:
                     #Don't draw the gratings during the isi:
@@ -409,7 +408,6 @@ for block in xrange(p.n_blocks):
                                                 interpolate=False)
 
                     grating1.draw()
-                    grating2.draw()
 
                 #During the response duration, turn the stimulus off again:
                 elif t<p.target_dur*2+2*p.isi+p.response_dur:
@@ -420,8 +418,6 @@ for block in xrange(p.n_blocks):
                     fixation.setFillColor(fixation_feedback_color)
                     fixation.setLineColor(fixation_feedback_color)
 
-                fixation_surround.draw()
-                fixation.draw()
                 win.flip()
 
                 if get_response:
@@ -494,9 +490,7 @@ for block in xrange(p.n_blocks):
             if p.do_fixation and trial == p.n_trials-1:
                 fixation = square_fixation
                 fixation_surround = square_fixation_surround
-                fixation_surround.draw()
                 fixation.setColor(fixation_feedback_color)
-                fixation.draw()
                 win.flip()
                 # Wait exactly for the remainder of the block:
                 #print p.block_duration-block_clock.getTime() #dbg
