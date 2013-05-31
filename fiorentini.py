@@ -418,6 +418,8 @@ for block in xrange(p.n_blocks):
                     fixation.setFillColor(fixation_feedback_color)
                     fixation.setLineColor(fixation_feedback_color)
 
+                fixation_surround.draw()
+                fixation.draw()
                 win.flip()
 
                 if get_response:
@@ -490,7 +492,9 @@ for block in xrange(p.n_blocks):
             if p.do_fixation and trial == p.n_trials-1:
                 fixation = square_fixation
                 fixation_surround = square_fixation_surround
+                fixation_surround.draw()
                 fixation.setColor(fixation_feedback_color)
+                fixation.draw()
                 win.flip()
                 # Wait exactly for the remainder of the block:
                 #print p.block_duration-block_clock.getTime() #dbg
