@@ -3,6 +3,7 @@ from tools import sound_freq_sweep,compound_sound
 from psychopy.sound import Sound 
 
 p = dict(
+    color_target=False,
     monitor='SportsMedicineLab',
     screen_number = 0,
     scanner = False,
@@ -33,7 +34,7 @@ p = dict(
     fixation_color = -1,
     fix_staircase_step = 0.05,
     per_staircase_step = 0.05,
-    fringe_proportion = 0.2 # The part of the stimulus that is a raised cosine
+    fringe_proportion = 0.2, # The part of the stimulus that is a raised cosine
                             # at the fringe
     )
 
