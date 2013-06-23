@@ -59,7 +59,7 @@ for m in monitors.keys():
     fileobj = open(monitor['calib_file'], 'rU') 
     csv_read = csv.reader(fileobj)
     input_levels = [];
-    lums = {'R' : [], 'G' : [], 'B' : [] } 
+    lums = {'R' : [], 'G' : [], 'B' : [] ,'lum':[]} 
 
     gamma_vals = lums.copy()
     # Read input levels and luminescence values from file
@@ -68,10 +68,11 @@ for m in monitors.keys():
         lums['R'].append(float(row[1]))
         lums['G'].append(float(row[2]))
         lums['B'].append(float(row[3]))
+        lums['lum'].append(float(row[4]))
 
     # Calculate the gamma grid based on given lums
     gammaGrid = []
-    for val in ['R','G','B']:
+    for val in ['R','G','B','lum']:
         calculator = T.GammaCalculator(inputs = input_levels, lums = lums[val])
         gamma_vals[val] = [calculator.a,calculator.b, calculator.gamma]
         gammaGrid.append(gamma_vals[val])
@@ -83,6 +84,5 @@ for m in monitors.keys():
     newMon.setSizePix(monitor['size'])
     newMon.setNotes(monitor['notes'])
     newMon.setGammaGrid(gammaGrid)
-    print newMon.getGammaGrid()
     newMon.setCalibDate()
     newMon.saveMon()
