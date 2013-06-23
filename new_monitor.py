@@ -15,6 +15,17 @@ path = './calibration/'     # where monitors will be stored
 T.monitorFolder = path
 
 monitors = {
+
+'SportsMedicineLab': 
+dict(monitor_name = 'SportsMedicineLab', # name of the new monitor
+     calib_file = '%sSportsMedicineLab.csv'%path, # photometer data
+     width = 29.0, # width of the screen (cm)
+     distance = 71, # distance from the screen (cm)
+     size = [800, 600], # size of the screen (px)
+     # We can also save notes to our monitor:
+     notes = """ This is the monitor at the sports medicine lab"""),
+
+
     
 '582D_multisync': 
 dict(monitor_name = '582J_multisync', # name of the new monitor
@@ -41,6 +52,7 @@ dict(monitor_name = '582J_multisync', # name of the new monitor
 
 }
 
+
 for m in monitors.keys():
     monitor = monitors[m]
     # Initialize our intermediary variables and open the text file
@@ -63,7 +75,7 @@ for m in monitors.keys():
         calculator = T.GammaCalculator(inputs = input_levels, lums = lums[val])
         gamma_vals[val] = [calculator.a,calculator.b, calculator.gamma]
         gammaGrid.append(gamma_vals[val])
-    
+    # print gammaGrid
     # Create the new monitor, set values and save
     newMon = T.Monitor(monitor['monitor_name'],
                        monitor['width'],
@@ -71,5 +83,6 @@ for m in monitors.keys():
     newMon.setSizePix(monitor['size'])
     newMon.setNotes(monitor['notes'])
     newMon.setGammaGrid(gammaGrid)
+    print newMon.getGammaGrid()
     newMon.setCalibDate()
     newMon.saveMon()
