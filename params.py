@@ -3,7 +3,7 @@ from tools import sound_freq_sweep,compound_sound
 from psychopy.sound import Sound 
 
 p = dict(
-    color_target=False,
+    color_target=True,
     monitor='SportsMedicineLab',
     screen_number = 0,
     scanner = False,

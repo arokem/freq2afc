@@ -353,7 +353,8 @@ for block in xrange(p.n_blocks):
                     fixation.setLineColor(rgb*p.fixation_color)
                     fixation.setFillColor(rgb*p.fixation_color)
                     if target_first:
-                        color_target = [1, 0.8, 0.8]
+                        c_targ = np.min([0.5+per_staircase.value, 1])
+                        color_target = [c_targ, 0.5, 0.5]
                         intensity = (np.sin(Y-pi/2) +
                                      per_staircase.value*np.sin(3*Y-pi/2))   
                     else:
@@ -396,7 +397,8 @@ for block in xrange(p.n_blocks):
                     else:
                         intensity = (np.sin(Y-pi/2) +
                                      per_staircase.value*np.sin(3*Y-pi/2))
-                        color_target = [1, 0.8, 0.8]
+                        c_targ = np.min([0.5 + per_staircase.value, 1])
+                        color_target = [c_targ, 0.5, 0.5]
                         
                     intensity /= np.max(intensity)
                     grating1 = visual.PatchStim(win,ori=p.orientation,
